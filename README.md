@@ -1,6 +1,6 @@
 # Date Night v2.0
 
-This is an iteration of the original Date night app from Tassled-Wobbegong-bjtrj/Scratch-Project
+This is an iteration of the original Date night app from Tassled-Wobbegong-bjtrj/Scratch-Project.
 https://github.com/Tassled-Wobbegong-bjtrj/Scratch-Project
 
 # To use
