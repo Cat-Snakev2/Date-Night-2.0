@@ -1,7 +1,10 @@
-use npm run dev for front end
-use npm start for back end
+# Date Night v2.0
 
-TEStTEST
+This is an iteration of the original Date night app from Tassled-Wobbegong-bjtrj/Scratch-Project
+https://github.com/Tassled-Wobbegong-bjtrj/Scratch-Project
 
-prompt: `Hey chatGPT, could you give us a good evening date idea with an ${type} activity and a high end ${cravings} spot in ${city}? 
-          Make sure to include specific addresses for the date and links to pictures.`,
+# To use
+Run 'npm run dev' to start Webpack build bundler 
+Run 'npm start' to start the server
+
+

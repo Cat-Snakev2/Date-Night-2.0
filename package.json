@@ -47,6 +47,7 @@
     "jest-fetch-mock": "^3.0.3",
     "node-fetch": "^3.3.2",
     "nodemon": "^3.1.0",
+    "pg": "^8.11.5",
     "sass-loader": "^14.2.1",
     "style-loader": "^4.0.0",
     "webpack": "^5.91.0",
@@ -57,8 +58,13 @@
     "start": " nodemon server/server.js",
     "build": "NODE_ENV=production webpack",
     "dev": "NODE_ENV=development webpack serve --open",
+<<<<<<< HEAD
     "test": "jest --verbose --env=jsdom",
     "eject": "react-scripts eject"
+=======
+    "eject": "react-scripts eject",
+    "test": "jest"
+>>>>>>> dev
   },
   "eslintConfig": {
     "extends": [
