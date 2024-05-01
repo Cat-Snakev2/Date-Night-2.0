@@ -1,84 +1,16 @@
 // // ❤️❤️ ❤️❤️ ❤️❤️
-// // Activity.js
-// import React, { useState, useEffect } from 'react'
-// import axios from 'axios'
 
-// const Activity = ({ onAnswer, prevAnswer }) => {
-//   const [activity, setActivity] = useState('')
-
-//   useEffect(() => {
-//     // Fetch activity suggestions based on previous answer using OpenAI
-//     async function fetchActivitySuggestions() {
-//       try {
-//         const response = await axios.post('/activity-suggestions', { prevAnswer })
-//         setActivity(response.data.suggestions)
-//       } catch (error) {
-//         console.error('Error fetching activity suggestions:', error)
-//       }
-//     }
-//     fetchActivitySuggestions()
-//   }, [prevAnswer])
-
-//   const handleNext = () => {
-//     onAnswer('activity', activity)
-//   }
-
-//   return (
-//     <div>
-//       <p>How about {activity}?</p>
-//       <button className="button" onClick={handleNext}>
-//         Next
-//       </button>
-//     </div>
-//   )
-// }
-
-// export default Activity
-
-// Test (Fetch)
-// Activity.js
-
-import React, { useState, useEffect } from "react";
-// import axios from 'axios'
-
-// const Activity = ({ onAnswer, prevAnswer }) => {
-//   const [activity, setActivity] = useState('')
-
-//   useEffect(() => {
-//     // Fetch activity suggestions based on previous answer using OpenAI
-//     async function fetchActivitySuggestions() {
-//       try {
-//         const response = await axios.post('/activity-suggestions', { prevAnswer })
-//         setActivity(response.data.suggestions)
-//       } catch (error) {
-//         console.error('Error fetching activity suggestions:', error)
-//       }
-//     }
-//     fetchActivitySuggestions()
-//   }, [prevAnswer])
-
-//   const handleNext = () => {
-//     onAnswer('activity', activity)
-//   }
-
-//   return (
-//     <div>
-//       <p>How about {activity}?</p>
-//       <button onClick={handleNext}>Next</button>
-//     </div>
-//   )
-// }
+import React, { useState, useEffect } from 'react';
 
 const Activity = ({ onAnswer }) => {
-  const [act, setAct] = useState("");
-
+  const [act, setAct] = useState('');
 
   const handleNext = () => {
-    onAnswer("activity", act); // goes to next component
-    fetch("http://localhost:8080/act", {
-      method: "POST",
+    onAnswer('activity', act); // goes to next component
+    fetch('http://localhost:8080/act', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({ act }), // Convert the React state to JSON and send it as the POST body
       // i wonder if it matters if its city or location....
@@ -90,16 +22,16 @@ const Activity = ({ onAnswer }) => {
     })
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Network response was not ok");
+          throw new Error('Network response was not ok');
         }
         return response.json();
       })
       .then((data) => {
-        console.log("Success:", data);
+        console.log('Success:', data);
         // Handle the successful response here
       })
       .catch((error) => {
-        console.error("Error:", error);
+        console.error('Error:', error);
         // Handle errors here
       });
   };
@@ -140,8 +72,8 @@ const Activity = ({ onAnswer }) => {
     </div> */}
       <form>
         <input
-          className="location-input"
-          type="text"
+          className='location-input'
+          type='text'
           value={act}
           onChange={(e) => setAct(e.target.value)}
         />
@@ -152,3 +84,72 @@ const Activity = ({ onAnswer }) => {
 };
 
 export default Activity;
+
+// // Activity.js
+// import React, { useState, useEffect } from 'react'
+// import axios from 'axios'
+
+// const Activity = ({ onAnswer, prevAnswer }) => {
+//   const [activity, setActivity] = useState('')
+
+//   useEffect(() => {
+//     // Fetch activity suggestions based on previous answer using OpenAI
+//     async function fetchActivitySuggestions() {
+//       try {
+//         const response = await axios.post('/activity-suggestions', { prevAnswer })
+//         setActivity(response.data.suggestions)
+//       } catch (error) {
+//         console.error('Error fetching activity suggestions:', error)
+//       }
+//     }
+//     fetchActivitySuggestions()
+//   }, [prevAnswer])
+
+//   const handleNext = () => {
+//     onAnswer('activity', activity)
+//   }
+
+//   return (
+//     <div>
+//       <p>How about {activity}?</p>
+//       <button className="button" onClick={handleNext}>
+//         Next
+//       </button>
+//     </div>
+//   )
+// }
+
+// export default Activity
+
+// Test (Fetch)
+// Activity.js
+
+// import axios from 'axios'
+
+// const Activity = ({ onAnswer, prevAnswer }) => {
+//   const [activity, setActivity] = useState('')
+
+//   useEffect(() => {
+//     // Fetch activity suggestions based on previous answer using OpenAI
+//     async function fetchActivitySuggestions() {
+//       try {
+//         const response = await axios.post('/activity-suggestions', { prevAnswer })
+//         setActivity(response.data.suggestions)
+//       } catch (error) {
+//         console.error('Error fetching activity suggestions:', error)
+//       }
+//     }
+//     fetchActivitySuggestions()
+//   }, [prevAnswer])
+
+//   const handleNext = () => {
+//     onAnswer('activity', activity)
+//   }
+
+//   return (
+//     <div>
+//       <p>How about {activity}?</p>
+//       <button onClick={handleNext}>Next</button>
+//     </div>
+//   )
+// }

@@ -1,15 +1,15 @@
 // ❤️❤️ ❤️❤️ ❤️❤️
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 const DinnerPlans = ({ onAnswer }) => {
-  const [craving, setCraving] = useState("");
+  const [craving, setCraving] = useState('');
 
   const handleNext = () => {
-    onAnswer("dinnerPlans", craving);
-    fetch("http://localhost:8080/craving", {
-      method: "POST",
+    onAnswer('dinnerPlans', craving);
+    fetch('http://localhost:8080/craving', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({ craving }), // Convert the React state to JSON and send it as the POST body
       // i wonder if it matters if its city or location....
@@ -21,16 +21,16 @@ const DinnerPlans = ({ onAnswer }) => {
     })
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Network response was not ok");
+          throw new Error('Network response was not ok');
         }
         return response.json();
       })
       .then((data) => {
-        console.log("Success:", data);
+        console.log('Success:', data);
         // Handle the successful response here
       })
       .catch((error) => {
-        console.error("Error:", error);
+        console.error('Error:', error);
         // Handle errors here
       });
   };
@@ -41,8 +41,9 @@ const DinnerPlans = ({ onAnswer }) => {
       <p>What about dinner plans, is there anything you're craving?</p>
       <form>
         <input
-          className="dinner-input"
-          type="text"
+          data-testid='dinner-input'
+          className='dinner-input'
+          type='text'
           value={craving}
           onChange={(e) => setCraving(e.target.value)}
         />
