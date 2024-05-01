@@ -1,4 +1,37 @@
 // ❤️❤️ ❤️❤️ ❤️❤️
+
+import React, { useState } from 'react';
+
+// JC: Maintainer faciliates user answers, passing them back to QuestionWindow
+const Maintainer = () => {
+  // state is our answers, initially set to empty obj
+  const [answers, setAnswers] = useState({});
+
+  const handleAnswer = async (question, answer) => {
+    // update answer state
+    setAnswers({ ...answers, [question]: answer });
+    console.log(answers);
+
+    try {
+      const response = await fetch('/generate-response', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ question, answer }),
+      });
+      const data = await response.json();
+      console.log(data.response);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
+  return null;
+};
+
+export default Maintainer;
+
 // Maintainer.js
 // import React, { useState } from 'react'
 // // Import axios for making HTTP requests
@@ -27,32 +60,3 @@
 
 ///////  Test (Fetch)
 // Maintainer.js
-
-import React, { useState } from 'react'
-
-const Maintainer = () => {
-  const [answers, setAnswers] = useState({})
-
-  const handleAnswer = async (question, answer) => {
-    setAnswers({ ...answers, [question]: answer })
-    console.log(answers)
-
-    try {
-      const response = await fetch('/generate-response', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ question, answer })
-      })
-      const data = await response.json()
-      console.log(data.response)
-    } catch (error) {
-      console.error('Error:', error)
-    }
-  }
-
-  return null
-}
-
-export default Maintainer
