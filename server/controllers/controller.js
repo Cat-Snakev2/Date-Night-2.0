@@ -36,31 +36,31 @@ async function getActivities(city, type, cravings, next) {
 }
 
 // Function to get restaurant options using OpenAI API
-async function getRestaurants(craving) {
-  try {
-    const chatCompletion = await openai.chat.completions.create({
-      messages: [
-        {
-          role: 'user',
-          //we need access to the location chosen here
-          content: `I'm craving ${craving}, could you suggest 2 restaurants? 1 casual and 1 high end in this ${location}`,
-        },
-      ],
-      model: 'gpt-3.5-turbo',
-    });
+// async function getRestaurants(craving) {
+//   try {
+//     const chatCompletion = await openai.chat.completions.create({
+//       messages: [
+//         {
+//           role: 'user',
+//           //we need access to the location chosen here
+//           content: `I'm craving ${craving}, could you suggest 2 restaurants? 1 casual and 1 high end in this ${location}`,
+//         },
+//       ],
+//       model: 'gpt-3.5-turbo',
+//     });
 
-    // Extract restaurant suggestions from OpenAI API response
-    const response = chatCompletion.choices[0].message.content;
-    // console.log(response); // Log the response for debugging
+//     // Extract restaurant suggestions from OpenAI API response
+//     const response = chatCompletion.choices[0].message.content;
+//     // console.log(response); // Log the response for debugging
 
-    return response;
-  } catch (error) {
-    console.error('Error:', error);
-    return "Sorry, I couldn't get restaurant suggestions.";
-  }
-}
+//     return response;
+//   } catch (error) {
+//     console.error('Error:', error);
+//     return "Sorry, I couldn't get restaurant suggestions.";
+//   }
+// }
 
 module.exports = {
   getActivities,
-  getRestaurants,
+  // getRestaurants,
 };
