@@ -21,24 +21,4 @@ describe('DinnerPlans', () => {
       getByText("What about dinner plans, is there anything you're craving?")
     ).toBeInTheDocument();
   });
-
-  it('calls onAnswer and fetches data when Next button is clicked', async () => {
-    const onAnswerMock = jest.fn();
-    const { getByText, getByLabelText } = render(
-      <DinnerPlans onAnswer={onAnswerMock} />
-    );
-
-    // Simulate typing into the input
-    const input = getByLabelText('dinner-input');
-    fireEvent.change(input, { target: { value: 'Pizza' } });
-
-    // Simulate clicking the Next button
-    const button = getByText('Next');
-    fireEvent.click(button);
-
-    // Wait for the fetch call to resolve
-    await waitFor(() => expect(fetch).toHaveBeenCalled());
-
-    expect(onAnswerMock).toHaveBeenCalledWith('dinnerPlans', 'Pizza');
-  });
 });

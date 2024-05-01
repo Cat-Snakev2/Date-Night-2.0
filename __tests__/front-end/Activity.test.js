@@ -12,6 +12,7 @@ test('activity update state on the input', () => {
 
   expect(input.value).toBe('Testing');
 });
+
 // unit testing React components
 describe('Unit testing Activity React component', () => {
   it('Renders with the appropriate text', () => {
