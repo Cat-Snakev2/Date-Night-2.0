@@ -9,7 +9,7 @@ describe('Empty state before interactions', () => {
 
   beforeEach(() => {
     state = {
-      step: null,
+      step: 1,
       answers: {},
       synced: true, // JC to check what 'synced' does
     };
@@ -18,6 +18,8 @@ describe('Empty state before interactions', () => {
   describe('default state', () => {
     it('should return default state when given an undefined input', () => {
       render(<QuestionWindow />);
+      // if I want to check actual state, I need to be checking wherever that state is rendered
+      // check screen.getBy... (check with methods we need to get the state)
       expect(subject(state)).toBe(state);
     });
   });

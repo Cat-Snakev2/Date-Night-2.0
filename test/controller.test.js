@@ -1,10 +1,10 @@
-jest.mock('../server/controller', () => ({
+jest.mock('../server/controllers/controller.js', () => ({
   // mock simulates the api calls
   getActivities: jest.fn().mockResolvedValue('A romantic dinner in rome'),
   // expected response from mock api call
 }));
 
-const { getActivities } = require('../server/controller');
+const { getActivities } = require('../server/controllers/controller.js');
 
 describe('getActivities', () => {
   it('should return a good evening date idea', async () => {
