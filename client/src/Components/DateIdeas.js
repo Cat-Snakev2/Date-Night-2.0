@@ -75,7 +75,7 @@ const DateIdeas = ({ ideas }) => {
     <div id='final-suggestion-wrapper'>
       {showSuggestions ? (
         <div>
-          <h2>Date Ideas</h2>
+          <h2 href='/DateIdeas'>Date Ideas</h2>
           <p>Here are some date ideas based on your preferences:</p>
           <ul>
             {dateSuggestions.map((suggestion, index) => (
